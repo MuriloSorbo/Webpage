@@ -8,7 +8,7 @@ Router.get('/', (req, res) =>
 {
     const code = req.session.code;
 
-    if      (code == process.env.ADM_PASS) res.redirect('/adm');
+    if      (code == 'admin1234') res.redirect('/adm');
     else if (dbConnection.connections[code]) res.redirect('/main');
 
     else res.sendFile(path.join(__dirname, '../Pages/LoginPage/index.html'));

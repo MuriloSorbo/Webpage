@@ -31,7 +31,7 @@ async function getDbNames()
 }
 
 function addConnection(dbName) {
-  const dbUrl = process.env.DB_URL.replace('adm', dbName);
+  const dbUrl = 'mongodb+srv://node:node1234@sgm.cgvrzlh.mongodb.net/adm?retryWrites=true&w=majority&appName=SGM'.replace('adm', dbName);
 
   const connection = mongoose.createConnection(dbUrl);
 
