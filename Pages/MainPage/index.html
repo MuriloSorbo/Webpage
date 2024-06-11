@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/Pages/MainPage/public/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <title>SGM - Armazenando Riquezas</title>
+</head>
+<body>
+  <header>
+      <nav class="navigation" style="height: 7vw;">
+          <div class="nav-left">
+              <img class="logo" src="/assets/logo.png">
+              <ul class="nav-menu">
+                  <li class="nav-item" id="MACHINE">--</li>
+                  <li class="nav-item"><i class="material-icons">border_color</i></li>
+              </ul>
+          </div>
+          <div class="divider-container"> <!-- Contêiner para a linha -->
+            <div class="divider"></div> <!-- Adicionando a linha central -->
+          </div>
+          <div class="nav-right">
+              <div class="conected"><h4><span id="dotCon" class="dot-con"></span><span id="connectionStatus">Desconectado</span></h4></div>
+              <div class="state"><h4><span id="dotState" class="dot-state"></span><span id="opState">Fora de Operação</span></h4></div>
+          </div>
+          <div class="menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+      </nav>
+    </header>
+    <main>
+        <div id="title" class="title">
+            <h1 class="title" id="title"><span class="circle"></span>
+              <span id="opName">Operação atual: SiloBolsa2135</h1></span>
+        </div>
+        <div class="sensor-card">
+            <div class="svg-item">
+                        <svg
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 40 40"
+                          class="donut"
+                        >
+                          <circle
+                            class="donut-hole"
+                            cx="20"
+                            cy="20"
+                            r="15.91549430918954"
+                            fill="#fff"
+                          ></circle>
+                          <circle
+                            class="donut-ring"
+                            cx="20"
+                            cy="20"
+                            r="15.91549430918954"
+                            fill="transparent"
+                            stroke-width="3.5"
+                          ></circle>
+                          <circle
+                            class="donut-segment donut-segment-3"
+                            cx="20"
+                            cy="20"
+                            r="15.91549430918954"
+                            fill="transparent"
+                            stroke-width="3.5"
+                            id="tempCircle"
+                            stroke-dasharray="0 100"
+                            stroke-dashoffset="25"
+                          ></circle>
+                          <g class="donut-text donut-text-2">
+                            <text y="50%" transform="translate(0, 2)">
+                              <tspan
+                                x="50%"
+                                text-anchor="middle"
+                                class="donut-percent"
+                                id="tempText"
+                              >
+                                0ºC
+                              </tspan>
+                            </text>
+                            <text y="60%" transform="translate(0, 2)">
+                              <tspan x="50%" text-anchor="middle" class="donut-data">
+                                Temperatura
+                              </tspan>
+                            </text>
+                          </g>
+                        </svg>
+            </div>
+        </div>
+        <div class="sensor-card2">
+            <div class="svg-item2">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 40 40"
+                        class="donut"
+                      >
+                        <circle
+                          class="donut-hole"
+                          cx="20"
+                          cy="20"
+                          r="15.91549430918954"
+                          fill="#fff"
+                        ></circle>
+                        <circle
+                          class="donut-ring"
+                          cx="20"
+                          cy="20"
+                          r="15.91549430918954"
+                          fill="transparent"
+                          stroke-width="3.5"
+                        ></circle>
+                        <circle
+                          class="donut-segment donut-segment-2"
+                          cx="20"
+                          cy="20"
+                          r="15.91549430918954"
+                          fill="transparent"
+                          stroke-width="3.5"
+                          id="humCircle"
+                          stroke-dasharray="0 100"
+                          stroke-dashoffset="25"
+                        ></circle>
+                        <g class="donut-text donut-text-1">
+                          <text y="50%" transform="translate(0, 2)">
+                            <tspan
+                              x="50%"
+                              text-anchor="middle"
+                              class="donut-percent"
+                              id="humText"
+                            >
+                              0%
+                            </tspan>
+                          </text>
+                          <text y="60%" transform="translate(0, 2)">
+                            <tspan x="50%" text-anchor="middle" class="donut-data">
+                              Umidade
+                            </tspan>
+                          </text>
+                        </g>
+                      </svg>
+            </div>
+        </div>
+        <div class="sensor-card3">
+          <div class="svg-item3">
+                    <svg  width="100%"  height="100%" viewBox="0 0 200 200" class="donut">
+                      
+                      <g class="donut-text donut-text-2">
+                         
+                          <foreignObject x="10%" y="10%" width="80%" height="80%" id="map">
+                          </foreignObject>
+                      </g>
+                    </svg>
+          </div>
+        </div>
+        <div>
+          <h2 id="refreshDate" class="update">Atualizado em: --/--/---- - --:--</h2>
+        </div>
+    </main>
+    <footer>
+      <div class="operation">
+        <div class="line"></div>
+        <h3 style="font-weight: 400;">Operações Realizadas</h3>
+        <div class="line"></div>
+      </div>
+      <div class="search">
+        <input type="text" id="searchInput" placeholder="Buscar" style="border-radius: 40px; padding: 0.5% 3%; background-color: #E0E0E0; border: 2px solid #E0E0E0; width: 20vw; height: 3vw; font-size: 1.15vw;">
+      </div>
+      <div id="buttonsContainer"></div>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="/Pages/MainPage/public/script.js"></script>
+</body>
+</html>
